@@ -78,4 +78,5 @@ If you find our work inspiring or use our codebase in your research, please cite
   year={2025}
 }
 ```
-
+## ⭐ StarGraph
+[![Star History Chart](https://api.star-history.com/svg?repos=dailenson/DiffBrush&type=Timeline)](https://www.star-history.com/#dailenson/DiffBrush&Timeline)
