@@ -1,5 +1,5 @@
 
-<h2 align="center"><a href="">🔥🔥Beyond Isolated Words: Diffusion Brush for Handwritten Text-Line Generation</a></h2>
+<h3 align="center"><a href="">🔥🔥Beyond Isolated Words: Diffusion Brush for Handwritten Text-Line Generation</a></h3>
 <div align="center">
   <a href="https://arxiv.org/abs/2508.03256"><img src="https://img.shields.io/badge/Arxiv-2508.03256-red"></a>
   <a href="https://github.com/dailenson/DiffBrush/blob/main/assets/Poster__DiffBrush.pdf"><img src="https://img.shields.io/badge/Poster-PDF-red"></a>
