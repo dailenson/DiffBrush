@@ -57,7 +57,7 @@ def main(args):
     vae.requires_grad_(False)
 
     """Generate and FID-related and HWD"""
-    text_corpus = 'data/IAM-test.txt'
+    text_corpus = 'data/wikitext103.txt'
     with open(text_corpus, 'r') as _f:
         texts = _f.read().splitlines()
     each_process = len(texts)//totol_process
@@ -107,7 +107,7 @@ def main(args):
                     image.save(os.path.join(hwd_dir, f"{wid[index][0]}-{x_text}_{style_idx[index][0]}.png"))
                     
     """Generate and Calculate FID"""
-    text_corpus = 'data/IAM-test.txt'
+    text_corpus = 'data/wikitext103.txt'
     with open(text_corpus, 'r') as _f:
         texts = _f.read().splitlines()
     temp_texts = []
