@@ -21,4 +21,4 @@ TEST:
   IMG_H: 64
   IMAGE_PATH: test_data
   STYLE_PATH: test_data
-  LABEL_PATH: data/wikitext103.txt
+  LABEL_PATH: data/wikitext103.te
