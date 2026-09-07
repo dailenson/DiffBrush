@@ -2,6 +2,9 @@
 **/*.jpeg
 .venv
 uv.lock
+model_zoo/checkpoint/
+model_zoo/stable-diffusion-v1-5/
+.env
 .idea
 
 # intermediate results
@@ -9,12 +12,14 @@ uv.lock
 **/*.pt
 **/*.csv
 
+# python caches
++*/__pycache__/
 
-## ppt
+# ppt
 *.pptx
 
-## template forms
+# template forms
 *.pdf
 
-## log files
+# log files
 *.log

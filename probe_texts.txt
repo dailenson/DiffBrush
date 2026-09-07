@@ -1,0 +1,22 @@
+# Probe texts for checkpoint probing (generate.py --text-file).
+# One sentence per line; blank lines and '#' comments are ignored.
+#
+# Phase-independent by design: the same texts are probed at every stage
+# (untouched IAM baseline, 4a/4b/4c checkpoints, Phase-5 gate comparisons),
+# so results are comparable image-by-image across phases.
+#
+# Keep the set small and targeted:
+#   1. English control — proves the released checkpoint still writes English
+#   2. Umlaut + ß line (ö/ü/ß) — "Schöne Grüße aus Leipzig", the Phase-0
+#      recorded baseline and the 4b content-lock comparison string
+#   3. Form-field line (ß/ä/Ö) — digits, ß, remaining lowercase/uppercase umlauts
+#
+# Characters: ASCII + ä ö ü ß Ä Ö Ü only (everything else has no glyph bitmap;
+# generate.py rejects unknown chars). Ä and Ü are in the alphabet but not in
+# these three lines; pass --text to exercise them.
+# Length: smoke probes can be short — the canvas is always 64×1024, unused
+# width is right-padding. The 35–61-char filter is --full_eval (wikitext) only.
+
+Success is not the destination, it's the journey.
+Schöne Grüße aus Überlingen
+Straße 40, ähnlich zu Ölberg

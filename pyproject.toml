@@ -12,6 +12,7 @@ dependencies = [
     "omegaconf>=2.3.1",
     "opencv-python>=5.0.0.93",
     "packaging>=25.0",
+    "python-dotenv>=1.1.0",
     "pillow>=12.3.0",
     "pyyaml>=6.0.2",
     "six>=1.17.0",
