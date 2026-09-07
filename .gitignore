@@ -15,3 +15,6 @@ uv.lock
 
 ## template forms
 *.pdf
+
+## log files
+*.log

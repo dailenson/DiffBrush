@@ -1,0 +1,22 @@
+[project]
+name = "diffbrush-with-german"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "accelerate>=1.14.0",
+    "diffusers>=0.40.0",
+    "easydict>=1.13",
+    "einops>=0.8.2",
+    "huggingface-hub>=1.27.0",
+    "numpy>=2.5.2",
+    "omegaconf>=2.3.1",
+    "opencv-python>=5.0.0.93",
+    "packaging>=25.0",
+    "pillow>=12.3.0",
+    "pyyaml>=6.0.2",
+    "six>=1.17.0",
+    "torch>=2.14.0",
+    "torchvision>=0.29.0",
+    "tqdm>=4.70.0",
+    "transformers>=5.15.0",
+]
