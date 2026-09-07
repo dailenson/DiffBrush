@@ -1,0 +1,17 @@
+**/*.jpg
+**/*.jpeg
+.venv
+uv.lock
+.idea
+
+# intermediate results
+**/*.png
+**/*.pt
+**/*.csv
+
+
+## ppt
+*.pptx
+
+## template forms
+*.pdf
