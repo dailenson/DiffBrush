@@ -92,13 +92,15 @@ class SupConLoss(nn.Module):
         return loss
 
 
-def binarize(T, nb_classes):
+def binarize(T, nb_classes, device=None):
     T = T.cpu().numpy()
     import sklearn.preprocessing
     T = sklearn.preprocessing.label_binarize(
         T, classes = range(0, nb_classes)
     )
-    T = torch.FloatTensor(T).cuda()
+    if device is None:
+        device = 'cuda'
+    T = torch.FloatTensor(T).to(device)   # German patch: caller's device (upstream .cuda())
     return T
 
 def l2_norm(input):
@@ -114,9 +116,10 @@ def l2_norm(input):
 class Proxy_Anchor(torch.nn.Module):
     def __init__(self, nb_classes, sz_embed, mrg = 0.1, alpha = 32, proxy_mode='only_real'):
         torch.nn.Module.__init__(self)
-        # Proxy Anchor Initialization
+        # German patch (phase-0): device-agnostic init; the host UNet's .to(device)
+        # places the parameter for CUDA/MPS/CPU alike (upstream hard-coded .cuda()).
         if proxy_mode == "only_real":
-            self.proxies = torch.nn.Parameter(torch.randn(nb_classes, sz_embed).cuda())
+            self.proxies = torch.nn.Parameter(torch.randn(nb_classes, sz_embed))
             print("Proxy Anchor Initialization: only real" )
         elif proxy_mode == "real_fake":
             self.proxies = torch.nn.Parameter(torch.randn(nb_classes*2, sz_embed).cuda())
@@ -134,7 +137,7 @@ class Proxy_Anchor(torch.nn.Module):
         P = self.proxies
 
         cos = F.linear(l2_norm(X), l2_norm(P))  # Calcluate cosine similarity
-        P_one_hot = binarize(T = T, nb_classes = self.nb_classes*2)
+        P_one_hot = binarize(T = T, nb_classes = self.nb_classes*2, device=X.device)
         if self.proxy_mode == "only_real":
             P_one_hot = P_one_hot[:, :self.nb_classes]
         else:
